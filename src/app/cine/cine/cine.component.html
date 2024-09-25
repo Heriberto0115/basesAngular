@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>CinePro </h1>
+  
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="nombre">
+  
+    <label for="compradores">Cantidad de Compradores:</label>
+    <input type="number" id="compradores" [(ngModel)]="compradores">
+  
+    <div class="radio-group">
+      <label>Tarjeta CinePro:</label>
+      <label>
+        <input type="radio" [(ngModel)]="tarjetaCinePro" value="si" name="tarjetaCinePro"> Sí
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="tarjetaCinePro" value="no" name="tarjetaCinePro"> No
+      </label>
+    </div>
+  
+    <label for="boletos">Cantidad de Boletos:</label>
+    <input type="number" id="boletos" [(ngModel)]="boletos">
+  
+    <button (click)="calcularTotal()">Procesar</button>
+
+    <div *ngIf="mensajeError" class="error">
+        <p>{{ mensajeError }}</p>
+      </div>
+  
+      <div *ngIf="!mensajeError && total > 0" class="output">
+        <h2>Total a Pagar</h2>
+        <p>{{ mensajeDescuento }}</p>
+        <p>Total: {{ total }} pesos.</p>
+      </div>
+    </div>
